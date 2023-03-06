@@ -1,0 +1,56 @@
+#Copyright 2021 Anghel Andrei - Stelian 312CA
+
+IDEE:
+	Atat datele referitoare la planetele din galaxie, cat si informatiile
+despre scuturi sunt stocate prin intermediul listelor dublu inlantuite
+circulare generice. Cum listele generice pointeaza la date de tipul void,
+am apelat un numar restrans de functii pentru gestionarea datelor stocate.
+	Legatura dintre lista de planete si listele de scuturi se face prin
+intermediul structurii "planet_t", ce contine numele planetei, numarul de
+"kill-uri" ale planetei si cel mai important, o lista ce stocheaza scuturile
+planetei respective. Astfel, fiecare nod al listei circulare este o structura
+de tip planet, ce retine date despre planeta, inclusiv lista circulara a
+scuturilor.
+
+-----------------------------------------------------------------------------
+
+PARSAREA COMENZILOR:
+	- comenzile sunt citite de la tastatura cu ajutorul functiei fgets(),
+	iar parsarea comenzilor se realizeaza prin intermediul functiei sscanf();
+	- parsarea are loc in functia main(), iar odata ce comanda dorita este
+	identificata (ADD, ROT, etc.), se apeleaza functia corespunzatoare;
+	- citirea datelor este una destul de permisiva. In cazul in care comanda
+	introdusa nu exista, se va afisa mesajul "Invalid command!".
+
+-----------------------------------------------------------------------------
+
+LISTA DUBLU INLANTUITA CIRCULARA:
+	- functiile pentru lista sunt cele implementate in cadrul laboratorului si
+	sunt incluse in fisierul CircularDoublyLinkedList.c;
+	- aceste functii sunt utilizate atat pentru gestionarea planetelor, cat si
+	pentru listele de scuturi;
+	- functia dll_get_nth_node() este deseori folosita in program pentru
+	pozitionarea la indicele dorit (spre exemplu, in cadrul comenzii COLLIDE,
+	functia este folosita pentru gasirea planetelor dorite, dar si pentru
+	gasirea scuturilor de la indicii mentionati);
+	- functia dll_rotate() realizeaza 'rotirea' listei in directia dorita cu
+	un anumit numar de unitati prin schimbarea nodului la care pointeaza
+	HEAD-ul listei.
+
+-----------------------------------------------------------------------------
+
+FUNCTII PENTRU PLANETE:
+	- functiile pentru gestionarea planetelor se gasesc in fisierul
+	PlanetFunctions.c;
+	- atunci cand este adaugata o noua planeta are loc si initializarea
+	listei de scuturi;
+	- pentru eliminarea unei planete, eliberarea memoriei asociate listei
+	de scuturi se face INAINTEA eliberarii memoriei pentru lista de planete. 
+
+-----------------------------------------------------------------------------
+
+FUNCTII PENTRU SCUTURI:
+	- functiile pentru gestionarea scuturilor se gasesc in fisierul
+	ShieldFunctions.c
+	- cum lista utilizata este una generica, schimbarea valorii scuturilor
+	se va face prin intermediul unui cast la tipul "int".
