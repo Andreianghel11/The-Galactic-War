@@ -1,5 +1,17 @@
 #Copyright 2021 Anghel Andrei - Stelian 312CA
 
+INTORDUCERE:
+	Am simulat un război galactic, în care participanții sunt planetele,
+fiecare având o linie de scuturi pentru protecție. Planetele sunt așezate într-un cerc,
+astfel încât fiecare planetă are 2 vecini (în cazul în care există cel puțin 3 planete în galaxie).
+Galaxia este reprezentată cu ajutorul unei Liste Circulare Dublu Înlănțuită (CDLL).
+De asemenea, scuturile fiecărei planete sunt reprezentate tot cu ajutorul unei CDLL.
+	În timpul războiului, o planetă se poate lupta (ciocni) doar cu vecinii săi,
+astfel, în urma luptei, unele dintre planete vor fi distruse. Atunci când 2 planete să
+ciocnesc, fiecare își pune la bătalie o unitate de scut. Când o planeta (p1) cauzează
+moartea altei planete (p2), numărul de planete distruse (kill-uri) al planetei p1
+crește cu o unitate.
+
 IDEE:
 	Atat datele referitoare la planetele din galaxie, cat si informatiile
 despre scuturi sunt stocate prin intermediul listelor dublu inlantuite
